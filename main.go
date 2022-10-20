@@ -58,7 +58,7 @@ func email() {
 // emailAuth := smtp.PlainAuth("", emailSender, password, hostURL)
 
 // *create email
-// msg := []byte("To: " + emailReceiver + "\r\n" + "Subject: " + "Hello den" + "\r\n" + "How are you doing")
+// msg := []byte("To: " + emailReceiver + "\r\n" + "Subject: " + "Hello " + "\r\n" + "How are you doing")
 
 // *send mail
 // err := smtp.SendMail(hostURL+":"+hostPort, emailAuth, emailSender, emailReceiver, msg)
