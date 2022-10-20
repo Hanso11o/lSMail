@@ -12,12 +12,12 @@ func main() {
 
 func email() {
 	//*sender data
-	from := os.Getenv("deniserofeev84@gmail.com")
+	from := os.Getenv("xxx")
 	password := os.Getenv("")
 
 	//*receiver address
-	toEmail := os.Getenv("deniserofeev84@gmail.com")
-	to := []string{"deniserofeev84@gmail.com"}
+	toEmail := os.Getenv("xxx")
+	to := []string{"xxx"}
 
 	//*smtp Simple Mail Transfer Protocol
 	host := "smtp.gmail.com"
@@ -35,11 +35,11 @@ func email() {
 
 // msg := gomail.NewMessage()
 // 	msg.SetHeader("From: ", "")
-// 	msg.SetHeader("To: ", "deniserofeev84@gmail.com")
+// 	msg.SetHeader("To: ", "xxx")
 // 	msg.SetHeader("Subject: ", "Test Email subject...msg")
 // 	msg.SetBody("text/plain", "This is the test body")
 
-// 	d := gomail.NewDialer("smtp.gmail.com", 587, "deniserofeev84@gmail.com", "")
+// 	d := gomail.NewDialer("smtp.gmail.com", 587, "xxx", "")
 
 // 	if err := d.DialAndSend(msg); err != nil {
 // 		fmt.Println(err)
@@ -50,9 +50,9 @@ func email() {
 // *config
 // hostURL :=
 // hostPort := "587"
-// emailSender := "deniserofeev84@gmail.com"
+// emailSender := "xxx"
 // password := ""
-// emailReceiver := "deniserofeev84@gmail.com"
+// emailReceiver := "xxx"
 
 // *obj Auth
 // emailAuth := smtp.PlainAuth("", emailSender, password, hostURL)
