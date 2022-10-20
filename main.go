@@ -13,7 +13,7 @@ func main() {
 func email() {
 	//*sender data
 	from := os.Getenv("deniserofeev84@gmail.com")
-	password := os.Getenv("Gd!2413@S%")
+	password := os.Getenv("")
 
 	//*receiver address
 	toEmail := os.Getenv("deniserofeev84@gmail.com")
@@ -39,7 +39,7 @@ func email() {
 // 	msg.SetHeader("Subject: ", "Test Email subject...msg")
 // 	msg.SetBody("text/plain", "This is the test body")
 
-// 	d := gomail.NewDialer("smtp.gmail.com", 587, "deniserofeev84@gmail.com", "Gd!2413@S%")
+// 	d := gomail.NewDialer("smtp.gmail.com", 587, "deniserofeev84@gmail.com", "")
 
 // 	if err := d.DialAndSend(msg); err != nil {
 // 		fmt.Println(err)
@@ -51,7 +51,7 @@ func email() {
 // hostURL :=
 // hostPort := "587"
 // emailSender := "deniserofeev84@gmail.com"
-// password := "Gd!2413@S%"
+// password := ""
 // emailReceiver := "deniserofeev84@gmail.com"
 
 // *obj Auth
