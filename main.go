@@ -2,31 +2,53 @@ package main
 
 import (
 	"fmt"
-	"log"
-
-	"gopkg.in/gomail.v2"
+	"os"
 )
 
 func main() {
-
-	msg := gomail.NewMessage()
-	msg.SetHeader("From: ", "deniserofeev84@gmail.com")
-	msg.SetHeader("To: ", "deniserofeev84@gmail.com")
-	msg.SetHeader("Subject: ", "Test Email subject...msg")
-	msg.SetBody("text/plain", "This is the test body")
-
-	d := gomail.NewDialer("smtp.gmail.com", 587, "deniserofeev84@gmail.com", "Gd!2413@S%")
-
-	if err := d.DialAndSend(msg); err != nil {
-		fmt.Println(err)
-		log.Fatal(err)
-	}
-
-	fmt.Print("Email send...")
+	fmt.Println("Golang email app running...")
+	email()
 }
 
+func email() {
+	//*sender data
+	from := os.Getenv("deniserofeev84@gmail.com")
+	password := os.Getenv("Gd!2413@S%")
+
+	//*receiver address
+	toEmail := os.Getenv("deniserofeev84@gmail.com")
+	to := []string{"deniserofeev84@gmail.com"}
+
+	//*smtp Simple Mail Transfer Protocol
+	host := "smtp.gmail.com"
+	port := "587"
+	address := host + ":" + port
+
+	//*message
+	subject := "Subject:  Our Golang Email\n"
+	body := "Our first email!"
+	message := []byte(subject + body)
+
+	//*authentication data
+
+}
+
+// msg := gomail.NewMessage()
+// 	msg.SetHeader("From: ", "")
+// 	msg.SetHeader("To: ", "deniserofeev84@gmail.com")
+// 	msg.SetHeader("Subject: ", "Test Email subject...msg")
+// 	msg.SetBody("text/plain", "This is the test body")
+
+// 	d := gomail.NewDialer("smtp.gmail.com", 587, "deniserofeev84@gmail.com", "Gd!2413@S%")
+
+// 	if err := d.DialAndSend(msg); err != nil {
+// 		fmt.Println(err)
+// 		log.Fatal(err)
+// 	}
+
+// 	fmt.Print("Email send...")
 // *config
-// hostURL := "smtp.gmail.com"
+// hostURL :=
 // hostPort := "587"
 // emailSender := "deniserofeev84@gmail.com"
 // password := "Gd!2413@S%"
