@@ -1,35 +1,61 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"net/smtp"
 	"os"
+	"text/template"
 )
 
-func main() {
-	fmt.Println("Golang email app running...")
-	email()
+type Person struct {
+	Name string
 }
 
-func email() {
-	//*sender data
-	from := os.Getenv("xxx")
+func main() {
+
+	fmt.Println("Email template app running...")
+	To := os.Getenv("xxxx")
+	emailTemplate(To)
+}
+
+func emailTemplate(To []string) (err error) {
+	addr := "smtp.gmail.com:587"
+	from := os.Getenv("xxxx")
 	password := os.Getenv("")
 
-	//*receiver address
-	toEmail := os.Getenv("xxx")
-	to := []string{"xxx"}
-
-	//*smtp Simple Mail Transfer Protocol
-	host := "smtp.gmail.com"
-	port := "587"
-	address := host + ":" + port
-
-	//*message
-	subject := "Subject:  Our Golang Email\n"
-	body := "Our first email!"
-	message := []byte(subject + body)
-
 	//*authentication data
+	//*func PlainAuth(indentify, username, password, host string) Auth
+	auth := smtp.PlainAuth("", from, password, addr)
+
+	var P Person
+	P.Name = "Den"
+	var t *template.Template
+
+	t, err = t.ParseFiles("templates/bodyTemplate.html")
+	if err != nil {
+		fmt.Println((err))
+		return
+	}
+
+	buff := new(bytes.Buffer)
+	t.Execute(buff, P)
+	fmt.Println(buff.String())
+
+	subject := "Subject: HTML Template Email\n"
+	mime := "Mime version: 1.0;\nContent-Type : text/html; charset=\"UTF-8\";\n\n"
+	body := "<html><h1>Golang lsMail</h1><ul><li>Denis Erofeev</li>"
+	msg := []byte(subject + mime + body)
+	fmt.Println("message:", string(msg))
+
+	//*send email
+	//*func SendMail(address, auth, from,to, message)
+	err = smtp.SendMail(addr, auth, from, To, msg)
+	if err != nil {
+		fmt.Println("ERROR: ", err)
+		return
+	}
+	fmt.Println("Go check your email")
 
 }
 
