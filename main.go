@@ -7,7 +7,7 @@ import (
 
 func sendMailSimple(subject string, body string, to []string) {
 	auth := smtp.PlainAuth("",
-		"deniserofeev84@gmail.com", "kjylshxokdzpchqh", "smtp.gmail.com")
+		"deniserofeev84@gmail.com", "xxxxxxxxx", "smtp.gmail.com")
 
 	msg := "Subject: " + subject + "\n" + body
 
