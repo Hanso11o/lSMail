@@ -21,7 +21,7 @@ func sendMailSimple(subject string, body string, to []string) {
 
 func main() {
 	fmt.Println("Golang app sending email runing...")
-	sendMailSimple("Another subject, Another body", []string{"deniserofeev84@gmail.com"})
+	sendMailSimple("Another subject", "Another body", []string{"deniserofeev84@gmail.com"})
 	fmt.Println("Check your email...")
 
 }
